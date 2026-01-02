@@ -1,0 +1,525 @@
+/* Teddy Bear Theme - Chá de Fralda da Lua (Watercolor Style) 🌸 */
+:root {
+    /* Color Palette - Watercolor Pink & Gold */
+    --color-bg-primary: #fff0f5;
+    /* Lavender blush */
+
+    --color-accent-primary: #fbcfe8;
+    /* Pink 200 */
+    --color-accent-secondary: #f472b6;
+    /* Pink 400 */
+    --color-accent-soft: #fce7f3;
+    /* Pink 100 */
+    --color-accent-gold: #d4a373;
+    /* Soft Gold/Beige */
+
+    --color-text-primary: #8d6e63;
+    /* Brown/Taupe for text */
+    --color-text-secondary: #a1887f;
+    /* Lighter brown */
+    --color-text-heading: #d8819d;
+    /* Dusty Rose for headings */
+
+    --color-white: #ffffff;
+    --color-cream: #fffaf0;
+    /* Floral white */
+
+    --color-glass-bg: rgba(255, 255, 255, 0.75);
+    --color-glass-border: rgba(255, 255, 255, 0.95);
+
+    /* Typography */
+    --font-heading: 'Dancing Script', cursive;
+    --font-body: 'Comfortaa', handwriting;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Border Radius */
+    --radius-sm: 15px;
+    --radius-md: 30px;
+    --radius-lg: 50px;
+    --radius-full: 9999px;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-primary);
+    background-image: url('images/bg_aquarela.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Background Clouds/Hearts */
+/* Background Clouds/Hearts */
+.bg-decoration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    color: var(--color-white);
+    opacity: 0.6;
+    animation: floatUp var(--float-duration, 10s) infinite ease-in;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
+    /* Fallback for emojis */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(110vh) scale(0.8) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1.2) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+/* Layout Container */
+.container {
+    max-width: 1000px;
+    /* Slightly narrower for invite feel */
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+}
+
+/* Glassmorphism Cards - Paper/Watercolor feel with Stitching 🧵 */
+.glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.85));
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    box-shadow:
+        0 20px 40px rgba(244, 114, 182, 0.15),
+        0 1px 3px rgba(255, 255, 255, 0.8) inset;
+    position: relative;
+    /* Inner Stitching Effect */
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px dashed rgba(244, 114, 182, 0.3);
+    /* Soft pink stitching */
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+/* Header / Hero Section */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    position: relative;
+}
+
+.hero-image-container {
+    margin-bottom: var(--spacing-sm);
+    animation: simpleFloat 5s ease-in-out infinite;
+}
+
+.hero-image {
+    max-width: 320px;
+    /* Slightly larger */
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(244, 114, 182, 0.25));
+}
+
+@keyframes simpleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.hero h1 {
+    font-size: 5rem;
+    color: var(--color-text-heading);
+    /* Dusty Rose */
+    margin-bottom: var(--spacing-xs);
+    text-shadow: 3px 3px 0px rgba(255, 255, 255, 1);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero p.subtitle {
+    font-family: var(--font-heading);
+    /* Dancing Script */
+    font-size: 2.8rem;
+    color: var(--color-accent-gold);
+    /* Dourado suave para contraste elegante */
+    letter-spacing: normal;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    display: inline-block;
+    margin-bottom: -15px;
+    /* Aproxima do título principal para composição */
+    font-weight: 700;
+    box-shadow: none;
+    text-shadow: 2px 2px 0px #fff, 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.hero p.subtitle::before,
+.hero p.subtitle::after {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    margin: 0 16px;
+    opacity: 0.8;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+}
+
+.hero-details {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    font-size: 1.35rem;
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.9);
+    /* Opaque background */
+}
+
+.hero-details i {
+    color: var(--color-accent-secondary);
+    margin-right: 10px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-md);
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--color-accent-secondary);
+}
+
+/* Sections General */
+section {
+    padding: var(--spacing-lg) 0;
+}
+
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-heading);
+    position: relative;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+}
+
+.section-title::after {
+    content: '👑';
+    /* Crown instead of star */
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.info-item {
+    text-align: center;
+    background: #ffffff;
+    transition: all 0.4s ease;
+    border: 2px solid var(--color-accent-soft);
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(244, 114, 182, 0.2);
+    border-color: var(--color-accent-secondary);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-secondary);
+    /* Icon color */
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 15px rgba(244, 114, 182, 0.2);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+    transform: rotate(10deg) scale(1.1);
+    background: var(--color-accent-secondary);
+    color: white;
+    box-shadow: 0 8px 20px rgba(244, 114, 182, 0.4);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #fbcfe8, #f472b6);
+    /* Pink gradient */
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(244, 114, 182, 0.4);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Shimmer Effect ✨ */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    left: 100%;
+    transition: 0.7s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(244, 114, 182, 0.5);
+    background: linear-gradient(135deg, #f9a8d4, #ec4899);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: var(--color-accent-primary);
+    color: var(--color-text-primary);
+    box-shadow: 0 8px 25px rgba(244, 114, 182, 0.4);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Gift Registry */
+.registry-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.registry-item {
+    background: #ffffff;
+    padding: 1rem 1.8rem;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-accent-soft);
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(244, 114, 182, 0.1);
+}
+
+.registry-item:hover {
+    transform: scale(1.05) translateY(-2px);
+    border-color: var(--color-accent-secondary);
+    background: var(--color-accent-soft);
+    box-shadow: 0 6px 20px rgba(244, 114, 182, 0.3);
+}
+
+/* Footer */
+footer {
+    font-family: var(--font-heading);
+    text-align: center;
+    padding: var(--spacing-md);
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    margin-top: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+}
+
+/* Message Card Styling */
+.sweet-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--color-text-heading);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.divider {
+    color: var(--color-accent-gold);
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    opacity: 0.8;
+}
+
+.hero-details {
+    /* Updated styles for better spacing */
+    padding: 2.5rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive & Mobile Optimization 📱 */
+@media (max-width: 768px) {
+    :root {
+        --spacing-md: 1.5rem;
+        --spacing-lg: 3rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero {
+        padding-top: 5rem;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-image {
+        max-width: 220px;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+        border-radius: var(--radius-sm);
+    }
+
+    .sweet-message {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .registry-item {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+/* Small phones adjustment */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+}
