@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const numberOfElements = 20; // Fewer elements for cleaner look
 
     // Soft pastel themed emojis (Butterflies, Clouds, Sparkles)
-    const emojis = ['🦋', '☁️', '✨', '🌸', '🎀', '🤍', '⭐'];
+    const emojis = ['🦋', '☁️', '✨', '🌸', '🎀', '🤍', '⭐','🧸'];
 
     for (let i = 0; i < numberOfElements; i++) {
         const item = document.createElement('div');
@@ -92,6 +92,7 @@ window.addEventListener("scroll", reveal);
 
 // Trigger once on load
 reveal();
+
 
 
 
