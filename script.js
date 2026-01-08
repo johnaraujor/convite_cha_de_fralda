@@ -59,7 +59,27 @@ function reveal() {
     }
 }
 
+// Detectar fralda pela URL ( /p , /m , /g )
+document.addEventListener("DOMContentLoaded", () => {
+    const path = window.location.pathname.replace("/", "").toLowerCase();
+
+    const fraldas = document.querySelectorAll("[data-fralda]");
+
+    if (path === "p" || path === "m" || path === "g") {
+        fraldas.forEach(item => {
+            if (item.dataset.fralda !== path) {
+                item.style.display = "none";
+            } else {
+                item.style.border = "2px solid #f4b6c2";
+                item.style.background = "rgba(255,255,255,0.85)";
+            }
+        });
+    }
+});
+
+
 window.addEventListener("scroll", reveal);
 
 // Trigger once on load
 reveal();
+
