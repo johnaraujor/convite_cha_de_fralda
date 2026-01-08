@@ -59,16 +59,15 @@ function reveal() {
     }
 }
 
-// Detectar fralda pela URL ( /p , /m , /g )
+// Detectar fralda pela URL (?fralda=p | m | g)
 document.addEventListener("DOMContentLoaded", () => {
-    const path = window.location.pathname
-        .replace(/\//g, "")
-        .toLowerCase();
+    const params = new URLSearchParams(window.location.search);
+    const fraldaSelecionada = params.get("fralda");
 
     const fraldas = document.querySelectorAll("[data-fralda]");
 
-    // Se NÃO tiver /p /m /g → mostra todas
-    if (!["p", "m", "g"].includes(path)) {
+    // Sem parâmetro → mostra todas
+    if (!["p", "m", "g"].includes(fraldaSelecionada)) {
         fraldas.forEach(item => {
             item.style.display = "block";
             item.style.border = "none";
@@ -77,9 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Se tiver /p /m /g → filtra
+    // Com parâmetro → filtra
     fraldas.forEach(item => {
-        if (item.dataset.fralda !== path) {
+        if (item.dataset.fralda !== fraldaSelecionada) {
             item.style.display = "none";
         } else {
             item.style.display = "block";
@@ -93,5 +92,6 @@ window.addEventListener("scroll", reveal);
 
 // Trigger once on load
 reveal();
+
 
 
